@@ -7,7 +7,7 @@ require __DIR__ . '/includes/header.php';
 
     <main>
         <section class="hero-band">
-            <div class="hero home-hero">
+            <div class="hero">
                 <div class="hero-copy">
                     <p class="eyebrow"><span class="eyebrow-mark"></span> Inventory and sales for local shops</p>
                     <h1>Record a sale. Keep stock current.</h1>
@@ -50,11 +50,6 @@ require __DIR__ . '/includes/header.php';
             </div>
         </section>
 
-        <section class="workflow-strip" aria-label="Products, stock, sales, and reports">
-            <p>From product to report</p>
-            <div><span>Products</span><i aria-hidden="true"></i><span>Stock</span><i aria-hidden="true"></i><span>Sales</span><i aria-hidden="true"></i><span>Reports</span></div>
-        </section>
-
         <section class="feature-section" id="features">
             <div class="section-heading">
                 <p class="eyebrow"><span class="eyebrow-mark"></span> The everyday essentials</p>
@@ -81,14 +76,6 @@ require __DIR__ . '/includes/header.php';
                     <a href="about.php#reports">About reports and alerts <span aria-hidden="true">→</span></a>
                 </article>
             </div>
-        </section>
-
-        <section class="home-cta">
-            <div>
-                <p class="eyebrow">Need a hand?</p>
-                <h2>Ask us about setting up IMS.</h2>
-            </div>
-            <a class="button button-light" href="contact.php">Contact IMS <span aria-hidden="true">→</span></a>
         </section>
     </main>
 

@@ -12,7 +12,7 @@ $pages = [
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#F5F6F2">
     <title><?php echo htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8'); ?></title>
-    <link rel="stylesheet" href="css/landing.css?v=3">
+    <link rel="stylesheet" href="css/landing.css?v=4">
 </head>
 <body<?php echo $bodyClass !== '' ? ' class="' . htmlspecialchars($bodyClass, ENT_QUOTES, 'UTF-8') . '"' : ''; ?>>
     <header>

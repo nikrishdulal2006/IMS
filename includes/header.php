@@ -12,8 +12,9 @@ $unreadNotifications = $unreadNotifications ?? 0;
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo htmlspecialchars($pageTitle); ?> | IMS Nepal</title>
-    <link rel="stylesheet" href="css/app.css?v=1">
+    <link rel="stylesheet" href="css/app.css?v=3">
     <script src="assets/js/dashboard.js?v=1" defer></script>
 </head>
 <body>
@@ -71,7 +72,7 @@ $unreadNotifications = $unreadNotifications ?? 0;
             <div>
                 <h1>
                     <?php echo $view === 'list'
-                        ? 'Hey, Admin'
+                        ? 'Dashboard'
                         : htmlspecialchars($pageTitle); ?>
                 </h1>
                 <p class="topbar-sub">

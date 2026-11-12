@@ -11,8 +11,9 @@ $view = $view ?? 'list';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo htmlspecialchars($pageTitle); ?> | IMS Nepal Staff</title>
-    <link rel="stylesheet" href="css/app.css?v=1">
+    <link rel="stylesheet" href="css/app.css?v=3">
     <script src="assets/js/dashboard.js?v=1" defer></script>
 </head>
 <body>
@@ -45,7 +46,7 @@ $view = $view ?? 'list';
             <div>
                 <h1>
                     <?php echo $view === 'list'
-                        ? 'Hey, ' . htmlspecialchars($_SESSION['username'] ?? 'Staff')
+                        ? 'Dashboard'
                         : htmlspecialchars($pageTitle); ?>
                 </h1>
                 <p class="topbar-sub">

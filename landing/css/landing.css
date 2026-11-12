@@ -2,7 +2,6 @@
   color-scheme: light;
   --page: #F5F6F2;
   --surface: #FFFFFF;
-  --surface-soft: #E9EEE8;
   --border: #D8DED7;
   --ink: #202D26;
   --muted: #59665E;
@@ -369,40 +368,6 @@ summary:focus-visible {
   font-variant-numeric: tabular-nums;
 }
 
-.workflow-strip {
-  min-height: 104px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 48px;
-  padding: 24px 40px;
-  background: #FFFFFF;
-  border-bottom: 1px solid var(--border);
-}
-
-.workflow-strip > p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.78rem;
-  font-weight: 550;
-}
-
-.workflow-strip > div {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  color: #435347;
-  font-size: 0.84rem;
-  font-weight: 550;
-}
-
-.workflow-strip i {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-
 .feature-section {
   width: min(1240px, calc(100% - 96px));
   margin-inline: auto;
@@ -427,8 +392,7 @@ summary:focus-visible {
 }
 
 .home-page .section-heading h2,
-.home-page .feature-card h3,
-.home-page .home-cta h2 {
+.home-page .feature-card h3 {
   font-weight: 600;
   letter-spacing: -0.025em;
 }
@@ -499,7 +463,6 @@ summary:focus-visible {
   margin-left: 9px;
 }
 
-.home-cta,
 .about-bottom {
   width: min(1240px, calc(100% - 96px));
   min-height: 235px;
@@ -514,18 +477,10 @@ summary:focus-visible {
   border-radius: 8px;
 }
 
-.about-bottom {
-  background:
-    radial-gradient(ellipse at 83% 15%, rgba(132, 166, 132, 0.3), transparent 35%),
-    #244832;
-}
-
-.home-cta .eyebrow,
 .about-bottom .eyebrow {
   color: #C5D8C3;
 }
 
-.home-cta h2,
 .about-bottom h2 {
   max-width: 600px;
   margin: 0;
@@ -789,9 +744,7 @@ summary:focus-visible {
 
 .contact-page-main {
   flex: 1;
-  background:
-    radial-gradient(ellipse at 5% 10%, rgba(226, 237, 225, 0.75), transparent 34%),
-    var(--page);
+  background: var(--page);
 }
 
 .contact-hero {
@@ -906,7 +859,6 @@ summary:focus-visible {
   }
 
   .feature-section,
-  .home-cta,
   .about-bottom,
   .info-hero,
   .about-pillars,
@@ -962,11 +914,6 @@ summary:focus-visible {
 
   .sale-preview {
     width: min(100%, 590px);
-  }
-
-  .workflow-strip {
-    flex-wrap: wrap;
-    gap: 12px 28px;
   }
 
   .feature-section {
@@ -1053,7 +1000,6 @@ summary:focus-visible {
 
   .hero,
   .feature-section,
-  .home-cta,
   .about-bottom,
   .info-hero,
   .about-pillars,
@@ -1093,16 +1039,6 @@ summary:focus-visible {
 
   .sale-preview-fields {
     gap: 8px;
-  }
-
-  .workflow-strip {
-    padding: 22px 20px;
-  }
-
-  .workflow-strip > div {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
   }
 
   .feature-section {
@@ -1157,19 +1093,6 @@ summary:focus-visible {
 
   .about-pillars {
     padding-block: 45px 60px;
-  }
-
-  .home-cta {
-    min-height: 0;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 24px;
-    margin-bottom: 48px;
-    padding: 28px 24px;
-  }
-
-  .home-cta h2 {
-    font-size: 1.8rem;
   }
 
   .site-footer {

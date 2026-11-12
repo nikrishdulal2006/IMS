@@ -43,9 +43,7 @@ $showAlerts = $showAlerts ?? false;
         </div>
         <ul class="notif-banner-list">
             <?php foreach ($bannerNotes as $bn): ?>
-                <?php $isLowStock = ($bn['type'] ?? '') === 'low_stock'; ?>
-                <li class="<?php echo $isLowStock ? 'notif-low-stock' : ''; ?>">
-                    <span class="notif-item-mark" aria-hidden="true"><?php echo $isLowStock ? '!' : 'i'; ?></span>
+                <li>
                     <span class="notif-item-copy">
                         <strong><?php echo htmlspecialchars($bn['title'] ?? 'Alert'); ?></strong>
                         <span><?php echo htmlspecialchars($bn['message'] ?? ''); ?></span>
