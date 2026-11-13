@@ -2,6 +2,7 @@
 /**
  * includes/header.php
  * HTML <head>, sidebar, topbar opening tags.
+ * Dashboard UI: minimalistic, flat, whitespace-focused.
  */
 $pageTitle = $pageTitle ?? 'Dashboard';
 $pageSub = $pageSub ?? [];
@@ -14,7 +15,7 @@ $unreadNotifications = $unreadNotifications ?? 0;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo htmlspecialchars($pageTitle); ?> | IMS Nepal</title>
-    <link rel="stylesheet" href="css/app.css?v=3">
+    <link rel="stylesheet" href="css/app.css?v=6">
     <script src="assets/js/dashboard.js?v=1" defer></script>
 </head>
 <body>
@@ -23,14 +24,10 @@ $unreadNotifications = $unreadNotifications ?? 0;
     <!-- ═══════ SIDEBAR ═══════ -->
     <aside class="sidebar">
         <div class="sidebar-brand">
-            <a href="dashboard.php?view=list" class="brand brand-link">IMS Nepal</a>
+            <a href="dashboard.php" class="brand brand-link">IMS <span>Nepal</span></a>
         </div>
 
         <nav class="nav" id="primary-navigation" aria-label="Main navigation">
-            <a href="dashboard.php?view=list"
-               class="nav-link <?php echo $view === 'list'          ? 'active' : ''; ?>">
-                Dashboard
-            </a>
             <a href="dashboard.php?view=add"
                class="nav-link <?php echo $view === 'add'           ? 'active' : ''; ?>">
                 Add Product
@@ -61,8 +58,8 @@ $unreadNotifications = $unreadNotifications ?? 0;
         </nav>
 
         <div class="sidebar-footer">
-            <a href="signin.php?action=logout" class="nav-link logout" style="justify-content: center;">Logout</a>
-            <a href="index.php" class="nav-link back-to-site" style="justify-content: center;">← Back to website</a>
+            <a href="signin.php?action=logout" class="nav-link logout">Logout</a>
+            <a href="index.php" class="nav-link back-to-site">← Back to website</a>
         </div>
     </aside>
 
