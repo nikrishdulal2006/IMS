@@ -11,7 +11,10 @@ $pages = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8'); ?></title>
-    <link rel="stylesheet" href="css/landing.css?v=4">
+    <link rel="stylesheet" href="css/landing.css?v=6">
+    <?php foreach (($extraStyles ?? []) as $stylesheet): ?>
+        <link rel="stylesheet" href="<?php echo htmlspecialchars($stylesheet, ENT_QUOTES, 'UTF-8'); ?>">
+    <?php endforeach; ?>
 </head>
 <body>
     <header class="site-header">

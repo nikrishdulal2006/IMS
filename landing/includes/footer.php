@@ -1,15 +1,9 @@
 <?php
-$footerLinks = $currentPage === 'home'
-    ? [
-        ['href' => '#features', 'label' => 'Features'],
-        ['href' => 'about.php', 'label' => 'About'],
-        ['href' => 'contact.php', 'label' => 'Contact'],
-    ]
-    : [
-        ['href' => 'index.php', 'label' => 'Home'],
-        ['href' => 'about.php', 'label' => 'About'],
-        ['href' => 'contact.php', 'label' => 'Contact'],
-    ];
+$footerLinks = [
+    ['href' => 'index.php', 'label' => 'Home'],
+    ['href' => 'about.php', 'label' => 'About'],
+    ['href' => 'contact.php', 'label' => 'Contact'],
+];
 ?>
     <footer class="site-footer">
         <div class="footer-inner">
@@ -25,5 +19,8 @@ $footerLinks = $currentPage === 'home'
             </div>
         </div>
     </footer>
+    <?php foreach (($extraScripts ?? []) as $script): ?>
+        <script src="<?php echo htmlspecialchars($script, ENT_QUOTES, 'UTF-8'); ?>" defer></script>
+    <?php endforeach; ?>
 </body>
 </html>
