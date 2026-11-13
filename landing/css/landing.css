@@ -26,6 +26,7 @@ img { max-width: 100%; height: auto; display: block; }
 .site-header { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--line); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
 .wordmark { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); }
+.wordmark:hover { text-decoration: none; }
 .wordmark span { color: var(--accent); }
 .nav-links { display: flex; gap: 2rem; align-items: center; }
 .nav-links a { font-size: 0.95rem; font-weight: 600; color: var(--ink); text-decoration: none; }

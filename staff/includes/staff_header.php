@@ -13,7 +13,7 @@ $view = $view ?? 'list';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo htmlspecialchars($pageTitle); ?> | IMS Nepal Staff</title>
-    <link rel="stylesheet" href="css/app.css?v=5">
+    <link rel="stylesheet" href="css/app.css?v=6">
     <script src="assets/js/dashboard.js?v=5" defer></script>
 </head>
 <body>
