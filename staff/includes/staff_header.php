@@ -14,7 +14,7 @@ $view = $view ?? 'list';
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo htmlspecialchars($pageTitle); ?> | IMS Nepal Staff</title>
     <link rel="stylesheet" href="css/app.css?v=5">
-    <script src="assets/js/dashboard.js?v=1" defer></script>
+    <script src="assets/js/dashboard.js?v=5" defer></script>
 </head>
 <body>
 <div class="app">

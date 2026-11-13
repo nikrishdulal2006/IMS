@@ -182,12 +182,16 @@ function checkProductCountNotification(PDO $pdo, int $count): void {
 // validates against stock, and returns [ok, message].
 function recordSaleFromPost(PDO $pdo): array
 {
-    $pid = (int)($_POST['product_id'] ?? 0);
-    $qty = trim($_POST['quantity'] ?? '');
-    $note = trim($_POST['note'] ?? '');
-    $customerName = trim($_POST['customer_name'] ?? '');
-    $customerPhone = trim($_POST['customer_phone'] ?? '');
-    $product = getProduct($pdo, $pid);
+    $postString = static function (string $key): string {
+        $value = $_POST[$key] ?? '';
+        return is_scalar($value) ? trim((string)$value) : '';
+    };
+    $pid = filter_var($postString('product_id'), FILTER_VALIDATE_INT);
+    $qty = $postString('quantity');
+    $note = $postString('note');
+    $customerName = $postString('customer_name');
+    $customerPhone = $postString('customer_phone');
+    $product = $pid !== false && $pid > 0 ? getProduct($pdo, $pid) : null;
 
     if (!$product) {
         return ['ok' => false, 'message' => 'Select a valid product.'];
@@ -198,11 +202,20 @@ function recordSaleFromPost(PDO $pdo): array
     if ((int)$qty > (int)$product['quantity']) {
         return ['ok' => false, 'message' => 'Not enough stock. Available: ' . $product['quantity'] . '.'];
     }
-    if ($customerPhone !== '' && !preg_match('/^[0-9+\-\s()]{7,20}$/', $customerPhone)) {
-        return ['ok' => false, 'message' => 'Please enter a valid phone number (7-20 digits, spaces, +, -, () allowed).'];
-    }
     if ($customerName === '') {
         return ['ok' => false, 'message' => 'Customer name is required.'];
+    }
+    if (preg_match('/^.{1,120}$/us', $customerName) !== 1) {
+        return ['ok' => false, 'message' => 'Customer name must be 120 characters or fewer.'];
+    }
+    if (preg_match('/^\p{L}[\p{L}\p{M}]*(?: +\p{L}[\p{L}\p{M}]*)*$/u', $customerName) !== 1) {
+        return ['ok' => false, 'message' => 'Customer name can contain letters and spaces only.'];
+    }
+    if (preg_match('/^.{0,40}$/us', $customerPhone) !== 1) {
+        return ['ok' => false, 'message' => 'Phone must be 40 characters or fewer.'];
+    }
+    if (preg_match('/^.{0,255}$/us', $note) !== 1) {
+        return ['ok' => false, 'message' => 'Note must be 255 characters or fewer.'];
     }
 
     $sale = recordSale(

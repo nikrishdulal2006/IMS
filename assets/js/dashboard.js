@@ -167,6 +167,7 @@ function initializeSaleForm() {
                 customerNameInput.value = customer.name;
                 customerPhoneInput.value = customer.phone;
                 selectedCustomer = customer;
+                validateCustomerName();
                 closeCustomerList();
             });
             customerList.appendChild(button);
@@ -182,7 +183,18 @@ function initializeSaleForm() {
         }
         renderCustomerList();
     });
+
+    function validateCustomerName() {
+        const name = customerNameInput.value;
+        const valid = name === '' || /^\p{L}[\p{L}\p{M}]*(?: +\p{L}[\p{L}\p{M}]*)*$/u.test(name);
+        customerNameInput.setCustomValidity(
+            valid ? '' : 'Customer name can contain letters and spaces only.'
+        );
+    }
+    validateCustomerName();
+
     customerNameInput.addEventListener('input', () => {
+        validateCustomerName();
         if (selectedCustomer && customerNameInput.value !== selectedCustomer.name) {
             customerPhoneInput.value = '';
             selectedCustomer = null;
@@ -213,14 +225,20 @@ function initializeSaleForm() {
         preview.style.display = 'flex';
     }
 
-    productSelect.addEventListener('change', () => {
+    function updateSelectedProduct() {
         const option = productSelect.options[productSelect.selectedIndex];
         if (option.value) {
             unitPriceInput.value = option.dataset.price || '';
             quantityInput.max = option.dataset.stock || '';
+        } else {
+            unitPriceInput.value = '';
+            quantityInput.removeAttribute('max');
         }
         updateSalePreview();
-    });
+    }
+
+    productSelect.addEventListener('change', updateSelectedProduct);
+    updateSelectedProduct();
     unitPriceInput.addEventListener('input', updateSalePreview);
     quantityInput.addEventListener('input', updateSalePreview);
 }
