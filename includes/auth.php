@@ -4,15 +4,43 @@
  * Included by dashboard.php (admin) and staff_dashboard.php (staff).
  */
 
-function requireRole(string $role): void
+function requireAuth(): void
 {
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
+    if (empty($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+        header('Location: signin.php');
+        exit;
+    }
+}
+
+function requireRole(string $role): void
+{
+    requireAuth();
     if (($_SESSION['role'] ?? '') !== $role) {
         header('Location: signin.php');
         exit;
     }
+}
+
+function logout(): void
+{
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    $_SESSION = [];
+    if (isset($_COOKIE[session_name()])) {
+        setcookie(session_name(), '', time() - 42000, '/');
+    }
+    session_destroy();
+}
+
+function noCache(): void
+{
+    header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+    header('Pragma: no-cache');
+    header('Expires: ' . gmdate('D, d M Y H:i:s', time() - 86400) . ' GMT');
 }
 
 // ── CSRF token helpers ────────────────────────────────────────────────────────

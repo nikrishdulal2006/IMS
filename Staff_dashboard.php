@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/includes/auth.php';
 requireRole('staff');
+noCache();
 
 require_once __DIR__ . '/includes/invoice.php';
 require_once __DIR__ . '/config/connector.php';

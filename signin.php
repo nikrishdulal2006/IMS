@@ -3,6 +3,14 @@
 define('LOGIN_CONTROLLER', true);
 
 require __DIR__ . '/login/bootstrap.php';
+require __DIR__ . '/includes/auth.php';
+
+// Handle logout
+if (($_GET['action'] ?? '') === 'logout') {
+    logout();
+    header('Location: signin.php');
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $actionMap = [

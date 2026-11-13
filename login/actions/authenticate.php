@@ -42,6 +42,8 @@ defined('LOGIN_CONTROLLER') || exit;
                     $user['password_hash']
                 )
             ) {
+                session_regenerate_id(true);
+
                 $_SESSION[
                     'user_id'
                 ] =
@@ -56,6 +58,11 @@ defined('LOGIN_CONTROLLER') || exit;
                     'role'
                 ] =
                     $user['role'];
+
+                $_SESSION[
+                    'authenticated'
+                ] =
+                    true;
                 header(
                     'Location: ' .
                     (
