@@ -24,10 +24,10 @@ if (!defined('DASHBOARD_CONTROLLER')) {
 function productNumberError(string $price, string $quantity): ?string
 {
     if (!is_numeric($price) || (float)$price < 0) {
-        return 'Price must be a valid positive number.';
+        return 'Price must be a valid non-negative number.';
     }
-    if (!preg_match('/^\d+$/', $quantity)) {
-        return 'Quantity must be a whole number.';
+    if (!preg_match('/^[1-9]\d*$/', $quantity)) {
+        return 'Quantity must be a whole number greater than 0.';
     }
 
     return null;
@@ -55,10 +55,11 @@ if ($action === 'add') {
         $existing = $stmt->fetch();
 
         if ($existing) {
-            // Product-ID already exists → treat as Stock In: add the quantity
+            // Product-ID already exists → treat as Stock In: add the quantity and update price/category
             $newQty = (int)$existing['quantity'] + $q;
-            $pdo->prepare("UPDATE products SET quantity=? WHERE id=?")
-                ->execute([$newQty, $existing['id']]);
+            $c = $cat !== '' ? $cat : $existing['category'];
+            $pdo->prepare("UPDATE products SET quantity=?, category=?, price=? WHERE id=?")
+                ->execute([$newQty, $c, round((float)$price, 2), $existing['id']]);
 
             logMovement($pdo, $productId, 'in', $q, $newQty, 'Stock in via Add Product');
 

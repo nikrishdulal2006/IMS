@@ -198,6 +198,12 @@ function recordSaleFromPost(PDO $pdo): array
     if ((int)$qty > (int)$product['quantity']) {
         return ['ok' => false, 'message' => 'Not enough stock. Available: ' . $product['quantity'] . '.'];
     }
+    if ($customerPhone !== '' && !preg_match('/^[0-9+\-\s()]{7,20}$/', $customerPhone)) {
+        return ['ok' => false, 'message' => 'Please enter a valid phone number (7-20 digits, spaces, +, -, () allowed).'];
+    }
+    if ($customerName === '') {
+        return ['ok' => false, 'message' => 'Customer name is required.'];
+    }
 
     $sale = recordSale(
         $pdo,

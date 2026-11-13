@@ -26,6 +26,7 @@ foreach ($customers ?? [] as $customer) {
     <?php else: ?>
         <form method="POST" action="<?php echo htmlspecialchars($dashboardScript); ?>?view=sale_add">
             <input type="hidden" name="action" value="sale">
+            <?php echo csrfField(); ?>
 
             <div class="form-grid">
                 <div class="form-group">

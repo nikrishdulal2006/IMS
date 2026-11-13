@@ -17,6 +17,7 @@ if (!is_array($editProduct)) {
           action="dashboard.php?view=edit&id=<?php echo (int)$editProduct['id']; ?>">
         <input type="hidden" name="action" value="update">
         <input type="hidden" name="id"     value="<?php echo (int)$editProduct['id']; ?>">
+        <?php echo csrfField(); ?>
 
         <div class="form-grid">
             <div class="form-group">

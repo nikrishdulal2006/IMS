@@ -19,6 +19,7 @@ foreach ($products ?? [] as $product) {
 
     <form method="POST" action="dashboard.php?view=add">
         <input type="hidden" name="action" value="add">
+        <?php echo csrfField(); ?>
 
         <div class="form-grid">
             <div class="form-group product-name-group">

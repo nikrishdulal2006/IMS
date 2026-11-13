@@ -19,6 +19,12 @@ if (!defined('DASHBOARD_CONTROLLER')) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // CSRF validation
+    if (!validateCsrf()) {
+        http_response_code(403);
+        exit('Invalid CSRF token. Request rejected.');
+    }
+
     $action = $_POST['action'] ?? '';
 
     require_once __DIR__ . '/actions/products.php';       // add, update, stock_in/out, delete

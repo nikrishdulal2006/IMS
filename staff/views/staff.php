@@ -20,6 +20,7 @@ $staffCountLabel = $staffCount === 1 ? 'account' : 'accounts';
     </p>
     <form method="POST" action="dashboard.php?view=staff">
         <input type="hidden" name="action" value="staff_create">
+        <?php echo csrfField(); ?>
         <div class="form-grid">
             <div class="form-group">
                 <label>Username <span class="req">*</span></label>
@@ -78,6 +79,7 @@ $staffCountLabel = $staffCount === 1 ? 'account' : 'accounts';
                                   class="inline-edit-form">
                                 <input type="hidden" name="action" value="staff_update">
                                 <input type="hidden" name="id" value="<?php echo $sid; ?>">
+                                <?php echo csrfField(); ?>
 
                                 <label class="edit-label">Username</label>
                                 <input type="text" name="username"
@@ -120,6 +122,7 @@ $staffCountLabel = $staffCount === 1 ? 'account' : 'accounts';
                                   data-confirm="<?php echo htmlspecialchars('Delete staff user "' . $st['username'] . '"?', ENT_QUOTES, 'UTF-8'); ?>">
                                 <input type="hidden" name="action" value="staff_delete">
                                 <input type="hidden" name="id" value="<?php echo $sid; ?>">
+                                <?php echo csrfField(); ?>
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                             </form>
                         </td>

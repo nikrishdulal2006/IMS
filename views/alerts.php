@@ -10,6 +10,7 @@
 <div class="toolbar">
     <div class="alert-actions">
         <form method="POST" action="dashboard.php?view=notifications">
+            <?php echo csrfField(); ?>
             <button type="submit" name="action" value="mark_all_read"
                     class="btn btn-secondary">
                 Mark All as Read
@@ -17,6 +18,7 @@
         </form>
         <form method="POST" action="dashboard.php?view=notifications"
               data-confirm="Delete all alerts? This cannot be undone.">
+            <?php echo csrfField(); ?>
             <button type="submit" name="action" value="clear_notifications"
                     class="btn btn-danger">
                 Delete All Alerts
@@ -60,12 +62,14 @@
                     <div class="alert-card-actions">
                         <?php if ($unread): ?>
                             <form method="POST">
+                                <?php echo csrfField(); ?>
                                 <input type="hidden" name="action" value="mark_read">
                                 <input type="hidden" name="id" value="<?php echo (int)$n['id']; ?>">
                                 <button type="submit" class="btn btn-sm btn-secondary">Mark as read</button>
                             </form>
                         <?php endif; ?>
                         <form method="POST" data-confirm="Delete this alert?">
+                            <?php echo csrfField(); ?>
                             <input type="hidden" name="action" value="delete_notification">
                             <input type="hidden" name="id" value="<?php echo (int)$n['id']; ?>">
                             <button type="submit" class="btn btn-sm btn-danger">Delete</button>

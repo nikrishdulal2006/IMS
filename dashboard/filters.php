@@ -40,6 +40,10 @@ $reportTo = trim($_GET['to'] ?? '');
 $reportProductId = trim($_GET['product_id'] ?? '');
 $reportCategory = trim($_GET['category'] ?? '');
 
+if ($reportFrom !== '' && $reportTo !== '' && $reportFrom > $reportTo) {
+    $errorMessage = 'From date cannot be after To date.';
+}
+
 if ($view === 'sales' || $view === 'report') {
     $sql = "SELECT * FROM sales WHERE 1=1";
     $params = [];

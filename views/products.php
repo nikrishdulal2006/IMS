@@ -118,6 +118,7 @@ $filtered = $filtered ?? [];
                               data-confirm="Delete this product?">
                             <input type="hidden" name="action" value="delete">
                             <input type="hidden" name="id"     value="<?php echo (int)$p['id']; ?>">
+                            <?php echo csrfField(); ?>
                             <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                         </form>
                     </td>

@@ -53,6 +53,10 @@ if (
     $_SERVER['REQUEST_METHOD'] === 'POST'
     && ($_POST['action'] ?? '') === 'sale'
 ) {
+    if (!validateCsrf()) {
+        http_response_code(403);
+        exit('Invalid CSRF token. Request rejected.');
+    }
     $result = recordSaleFromPost($pdo);
 
     if ($result['ok']) {
