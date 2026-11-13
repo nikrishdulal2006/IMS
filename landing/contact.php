@@ -1,35 +1,34 @@
 <?php
 $pageTitle = 'Contact IMS Nepal';
 $currentPage = 'contact';
-$bodyClass = 'info-page contact-page';
 require __DIR__ . '/includes/header.php';
 ?>
 
-    <main class="contact-page-main">
-        <section class="contact-hero">
-            <div class="contact-intro">
-                <p class="eyebrow"><span class="eyebrow-mark"></span> CONTACT IMS NEPAL</p>
-                <h1>Questions? We’re happy to help.</h1>
-                <p>Call or email us about setting up IMS Nepal, managing your stock, or recording sales. We’ll be glad to hear from you.</p>
-            </div>
+<main class="container">
+    <section class="contact-hero" aria-labelledby="contact-title">
+        <div class="contact-intro">
+            <p class="info-hero-eyebrow"><mark></mark>Contact IMS Nepal</p>
+            <h1 id="contact-title">Questions? We&rsquo;re happy to help.</h1>
+            <p>Call or email us about setting up IMS Nepal, managing your stock, or recording sales. We&rsquo;ll be glad to hear from you.</p>
+        </div>
 
-            <section class="contact-details" aria-labelledby="contact-details-title">
-                <p class="contact-card-kicker">CALL OR EMAIL</p>
-                <h2 id="contact-details-title">Contact details</h2>
-                <p class="contact-card-description">Choose whichever is easier for you.</p>
-                <a class="contact-method" href="tel:+9779842020363">
-                    <span class="contact-method-icon" aria-hidden="true">☎</span>
-                    <span><small>CALL US</small><strong>+977 9842020363</strong></span>
-                    <span class="contact-method-arrow" aria-hidden="true">↗</span>
-                </a>
-                <a class="contact-method" href="mailto:sales@IMS.com">
-                    <span class="contact-method-icon" aria-hidden="true">@</span>
-                    <span><small>EMAIL US</small><strong>sales@IMS.com</strong></span>
-                    <span class="contact-method-arrow" aria-hidden="true">↗</span>
-                </a>
-                <p class="contact-card-note">We’ll be glad to answer your questions.</p>
-            </section>
-        </section>
-    </main>
+        <div class="contact-details" aria-label="Contact options">
+            <a class="contact-item" href="tel:+9779842020363">
+                <span class="icon" aria-hidden="true">&#9742;</span>
+                <span class="contact-item-copy">
+                    <small>Call us</small>
+                    <strong>+977 9842020363</strong>
+                </span>
+            </a>
+            <a class="contact-item" href="mailto:itsnikrish@gmail.com">
+                <span class="icon" aria-hidden="true">&#64;</span>
+                <span class="contact-item-copy">
+                    <small>Email us</small>
+                    <strong>itsnikrish@gmail.com</strong>
+                </span>
+            </a>
+        </div>
+    </section>
+</main>
 
 <?php require __DIR__ . '/includes/footer.php'; ?>

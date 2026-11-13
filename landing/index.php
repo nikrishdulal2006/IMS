@@ -1,82 +1,69 @@
 <?php
 $pageTitle = 'IMS Nepal | Inventory and Sales Management';
 $currentPage = 'home';
-$bodyClass = 'home-page';
 require __DIR__ . '/includes/header.php';
 ?>
 
-    <main>
-        <section class="hero-band">
-            <div class="hero">
-                <div class="hero-copy">
-                    <p class="eyebrow"><span class="eyebrow-mark"></span> Inventory and sales for local shops</p>
-                    <h1>Record a sale. Keep stock current.</h1>
-                    <p class="hero-description">
-                        IMS logs the sale, updates its stock, and keeps the bill and report together.
-                    </p>
-                    <div class="hero-actions">
-                        <a class="button" href="../signin.php?action=register">Create your account <span aria-hidden="true">→</span></a>
-                        <a class="button button-secondary" href="#features">See how it works</a>
-                    </div>
-                </div>
+<main class="container">
+    <section class="hero home-hero">
+        <div class="hero-copy">
+            <p class="hero-eyebrow"><mark></mark>For local shops</p>
+            <h1>Know what you have. Know what you sell.</h1>
+            <p>Keep product records, sales, bills, and stock updates together with IMS Nepal.</p>
+            <div class="hero-actions">
+                <a class="btn-primary" href="../signin.php?action=register">Create your account &rarr;</a>
+                <a class="btn-outline" href="#features">Explore features</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <figure class="home-visual">
+                <img src="assets/retail-checkout.jpg" alt="Shop owner helping a customer at checkout">
+                <figcaption class="home-visual-note">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span>
+                        <strong>Sale recorded</strong>
+                        <small>Stock updates automatically</small>
+                    </span>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
 
-                <figure class="sale-preview">
-                    <figcaption><span>Example sale</span><strong>Sale details</strong></figcaption>
-                    <div class="sale-preview-fields" role="img" aria-label="Illustrative IMS sale entry for two units of basmati rice at 850 rupees each, with 13 percent VAT">
-                        <div class="sale-preview-field sale-preview-customer">
-                            <span>Customer name</span>
-                            <strong>Walk-in customer</strong>
-                        </div>
-                        <div class="sale-preview-field sale-preview-product">
-                            <span>Product</span>
-                            <strong>Basmati rice <small>Stock: 24</small></strong>
-                        </div>
-                        <div class="sale-preview-field">
-                            <span>Quantity</span>
-                            <strong>2</strong>
-                        </div>
-                        <div class="sale-preview-field">
-                            <span>Unit price</span>
-                            <strong>Rs. 850.00</strong>
-                        </div>
-                    </div>
-                    <div class="sale-preview-total">
-                        <div><span>Subtotal</span><strong>Rs. 1,700.00</strong></div>
-                        <div><span>VAT 13%</span><strong>Rs. 221.00</strong></div>
-                        <div class="sale-preview-grand-total"><span>Total</span><strong>Rs. 1,921.00</strong></div>
-                    </div>
-                    <div class="sale-preview-foot"><span>After the sale</span><strong>Stock: 22</strong></div>
-                </figure>
-            </div>
-        </section>
+    <section class="section home-features" id="features" aria-labelledby="features-title">
+        <div class="section-heading">
+            <p class="section-kicker">The everyday essentials</p>
+            <h2 id="features-title">A clearer view of your shop.</h2>
+            <p>Bring the key parts of daily shopkeeping into one straightforward workflow.</p>
+        </div>
+        <div class="feature-grid">
+            <article class="feature-card">
+                <span class="feature-number">01</span>
+                <h3>Keep stock organized</h3>
+                <p>Store product IDs, categories, prices, and quantities together. Update counts when stock arrives or changes.</p>
+                <a href="about.php#stock">Explore stock management &rarr;</a>
+            </article>
+            <article class="feature-card">
+                <span class="feature-number">02</span>
+                <h3>Record sales with confidence</h3>
+                <p>Save product, quantity, customer, and staff details. Print bills with a clear 13% VAT breakdown.</p>
+                <a href="about.php#sales">Explore sales &amp; billing &rarr;</a>
+            </article>
+            <article class="feature-card">
+                <span class="feature-number">03</span>
+                <h3>Stay informed</h3>
+                <p>Review sales by date, product, or staff member, and spot low-stock items with alerts.</p>
+                <a href="about.php#reports">Explore reports &amp; alerts &rarr;</a>
+            </article>
+        </div>
+    </section>
 
-        <section class="feature-section" id="features">
-            <div class="section-heading">
-                <p class="eyebrow"><span class="eyebrow-mark"></span> The everyday essentials</p>
-                <h2>Products, sales, and the details around them.</h2>
-                <p class="section-intro">Keep stock counts current, print bills, and check what has sold.</p>
-            </div>
-            <div class="feature-grid">
-                <article class="feature-card" id="inventory">
-                    <span class="feature-index">01 / Inventory</span>
-                    <h3>Product and stock records</h3>
-                    <p>Keep each product's ID, category, price, and quantity together. Update counts when stock arrives or changes.</p>
-                    <a href="about.php#stock">About stock tracking <span aria-hidden="true">→</span></a>
-                </article>
-                <article class="feature-card" id="sales">
-                    <span class="feature-index">02 / Sales</span>
-                    <h3>Sales and printable bills</h3>
-                    <p>Save the product, quantity, customer, and staff details. Print a bill with the 13% VAT breakdown.</p>
-                    <a href="about.php#sales">About recording sales <span aria-hidden="true">→</span></a>
-                </article>
-                <article class="feature-card" id="reports">
-                    <span class="feature-index">03 / Reports and alerts</span>
-                    <h3>Sales reports and stock alerts</h3>
-                    <p>Review sales by date, product, or staff member. Low-stock alerts flag items with 10 units or fewer.</p>
-                    <a href="about.php#reports">About reports and alerts <span aria-hidden="true">→</span></a>
-                </article>
-            </div>
-        </section>
-    </main>
+    <section class="home-cta" aria-labelledby="home-cta-title">
+        <div>
+            <p class="section-kicker">A simpler way to stay on top of things</p>
+            <h2 id="home-cta-title">Bring your daily records together.</h2>
+        </div>
+        <a class="btn-primary" href="../signin.php?action=register">Get started &rarr;</a>
+    </section>
+</main>
 
 <?php require __DIR__ . '/includes/footer.php'; ?>
